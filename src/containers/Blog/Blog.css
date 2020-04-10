@@ -1,7 +1,23 @@
-.Posts {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 80%;
-    margin: auto;
+
+.BlogPost ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.BlogPost li{
+    display: inline-block;
+    margin: 20px;
+
+}
+
+.BlogPost a{
+    text-decoration: none;
+    color: black;
+}
+
+.BlogPost a:hover, .BlogPost a:active{
+    color: orange;
 }
