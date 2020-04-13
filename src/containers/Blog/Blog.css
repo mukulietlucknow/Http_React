@@ -15,7 +15,7 @@
 
 .BlogPost a{
     text-decoration: none;
-    color: black;
+    color: orangered;
 }
 
 .BlogPost a:hover, .BlogPost a:active{

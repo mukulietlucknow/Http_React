@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Blog.css';
 import Posts from './Posts/Posts';
-import {Route, Link} from 'react-router-dom';
+import {Route, NavLink, Switch} from 'react-router-dom';
 import NewPost from './NewPost/NewPost';
+import FullPost from './FullPost/FullPost';
 
 class Blog extends Component {    
 
@@ -14,14 +15,18 @@ class Blog extends Component {
                     <nav>
                         <ul>
                             <li>
-                                <Link to='/'>Home</Link>                                
+                                <NavLink to='/'  activeStyle={{
+                                    textDecoration : 'underline'
+                                    }} exact>Home</NavLink>                                
                             </li>
                             <li>
-                                <Link to={{
-                                    pathname: 'new-post',
+                                <NavLink to={{
+                                    pathname: '/new-post',
                                     // hash: '#submit',
                                     // search: '?quick-submit=true',
-                                }}>New</Link>                                
+                                }} activeStyle={{
+                                    textDecoration : 'underline'
+                                    }} exact>New</NavLink>                                
                             </li>
                         </ul>
                     </nav>
@@ -30,17 +35,16 @@ class Blog extends Component {
                 {/* <Route path="/" exact render={() => <h1>Home</h1>}/> */}
                 {/* <Posts/>              */}
                 <Route path="/" exact  component={Posts}/>
-                <Route path="/new-post" exact  component={NewPost}/>
+                <Switch>                    
+                    <Route path="/new-post" exact  component={NewPost}/>
+                    <Route path="/:id" exact  component={FullPost}/>
+                </Switch>
+                
             </div>
         );
     }
 }
 
-{/* <section>
-                    <FullPost id={this.state.seletedId}/>
-                </section>
-                <section>
-                    <NewPost />
-                </section> */}
+
 
 export default Blog;
